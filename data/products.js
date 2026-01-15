@@ -47,3 +47,7 @@ export const products = [
 export const getProductBySlug = (slug) => {
   return products.find(p => p.slug === slug);
 };
+
+export const getRelatedProducts = (slug) => {
+  return products.filter(p => p.slug !== slug).slice(0, 3);
+};
