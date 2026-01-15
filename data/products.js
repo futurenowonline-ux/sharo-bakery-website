@@ -1,6 +1,6 @@
 export const products = [
   {
-    id: 1,
+    id: "1",
     name: "Sharo Health Bread",
     slug: "health-bread",
     description: "Premium brown health bread made with high-quality ingredients",
@@ -11,10 +11,11 @@ export const products = [
       "Healthy seeds for protein and antioxidants"
     ],
     image: "/images/products/health-bread.jpg",
-    category: "bread"
+    category: "bread",
+    price: 45.00
   },
   {
-    id: 2,
+    id: "2",
     name: "Health Sandwiches",
     slug: "health-sandwiches",
     description: "Fresh sandwiches on Sharo health bread with quality fillings",
@@ -24,10 +25,11 @@ export const products = [
       "Variety of fillings"
     ],
     image: "/images/products/sandwiches.jpg",
-    category: "sandwiches"
+    category: "sandwiches",
+    price: 35.00
   },
   {
-    id: 3,
+    id: "3",
     name: "Cinnamon Buns",
     slug: "cinnamon-buns",
     description: "Delicious cinnamon buns baked fresh daily",
@@ -37,7 +39,8 @@ export const products = [
       "Quality ingredients"
     ],
     image: "/images/products/cinnamon-buns.jpg",
-    category: "buns"
+    category: "buns",
+    price: 25.00
   }
 ];
 
