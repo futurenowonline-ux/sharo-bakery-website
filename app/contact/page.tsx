@@ -41,7 +41,11 @@ export default function ContactPage() {
 
                             <div>
                                 <h3 className="font-semibold text-sharo-brown">Call Us</h3>
-                                <p className="text-gray-700">+27 35 870 0000</p>
+                                <p className="text-gray-700">
+                                    <a href="tel:+27717438989" className="hover:text-sharo-gold hover:underline">
+                                        071 743 8989
+                                    </a>
+                                </p>
                             </div>
 
                             <div>

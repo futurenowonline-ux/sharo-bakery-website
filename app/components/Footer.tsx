@@ -42,9 +42,9 @@ export default function Footer() {
                 <div className="flex flex-col space-y-4">
                     <h3 className="text-lg font-semibold text-sharo-gold">Contact Us</h3>
                     <div className="space-y-2 text-sm text-sharo-light/90">
-                        <p>Phone: +27 35 870 0000</p>
+                        <p>Phone: 071 743 8989</p>
                         <p>Email: info@sharobakery.co.za</p>
-                        <p>Address: Ulundi, KwaZulu-Natal, South Africa</p>
+                        <p>Address: Ulundi, KwaZulu-Natal</p>
                     </div>
                 </div>
 
