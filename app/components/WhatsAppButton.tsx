@@ -2,7 +2,7 @@
 
 export default function WhatsAppButton() {
   const phoneNumber = "27717438989"; // Primary WhatsApp
-  const message = "Hi Sharo Bakery! I'd like to order...";
+  const message = "Hello Sharo Bakery";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
