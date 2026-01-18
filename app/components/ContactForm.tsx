@@ -28,21 +28,63 @@ export default function ContactForm() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        try {
+            // Google Apps Script Web App URL
+            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby6F_BPeq9zPJutJ7eSWppOyJEKzH97eu0a6A3iSyX6Kab5jJ8Q_szd2lBOsYUzrvp_/exec";
 
-        setIsSubmitting(false);
-        setSuccess(true);
-        setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            subject: "",
-            message: "",
-        });
+            // Determine if we are sending JSON or FormData
+            // Apps Script doPost with JSON payload is best handled with text/plain to avoid CORS preflight issues sometimes,
+            // or we use 'no-cors' mode but then we can't read response. 
+            // Standard fetch with simple POST often works best.
 
-        // Reset success message after 5 seconds
-        setTimeout(() => setSuccess(false), 5000);
+            const response = await fetch(SCRIPT_URL, {
+                method: "POST",
+                // specific content type for Apps Script to handle JSON.parse
+                // Using 'no-cors' allows the request to go through from browser to Google Script
+                // but obtaining the response status is opaque. However, for a contact form, 
+                // fire-and-forget (or assume success if no network error) is often acceptable 
+                // if we want to avoid complex CORS setups.
+                // BUT, my script has `ContentService.createTextOutput`, so it SHOULD support CORS if I added headers?
+                // Actually my script didn't explicitly add Access-Control-Allow-Origin headers in doOptions.
+                // The safest way from a client-side component to Apps Script is sending valid JSON 
+                // with 'application/json' (triggering CORS) OR 'text/plain' (simple request, no CORS preflight).
+                // Let's use 'text/plain' to trick it into a simple request, but the body is JSON.
+                // My script does JSON.parse(e.postData.contents), which works for text/plain too!
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                // Even with text/plain, if headers aren't perfect, response might be opaque or have issues.
+                // But usually wait for it to complete.
+                setSuccess(true);
+                setFormData({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    subject: "",
+                    message: "",
+                });
+                setTimeout(() => setSuccess(false), 5000);
+            } else {
+                throw new Error("Network response was not ok");
+            }
+
+        } catch (error) {
+            console.error("Error submitting form", error);
+            // Even if CORS fails to return a readable response, the request often reached the server.
+            // But let's assume if it throws it failed.
+            // For now, let's treat "opaque" responses or successful fetches as success for the user UX 
+            // unless we strictly need to read the "success" JSON from the script.
+            // Given the 'text/plain' hack usually avoids CORS preflight, it should return 200 OK.
+
+            // Fallback for user feedback
+            alert("Something went wrong. Please try again or contact us directly on WhatsApp.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
