@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import FadeIn from '@/app/components/FadeIn';
+import HeroPoster from '@/app/components/HeroPoster';
 
 interface HeroProps {
     headline?: string;
@@ -39,18 +40,9 @@ export default function Hero({
                     </div>
                 </FadeIn>
 
-                {/* Image Section */}
-                <FadeIn direction="left" delay={0.2} className="w-full flex-1">
-                    <div className="relative h-96 w-full overflow-hidden rounded-2xl shadow-lg md:aspect-[4/3] md:h-auto">
-                        <Image
-                            src="/images/health-bread-loaves.jpg"
-                            alt="Fresh Sharo Health Bread"
-                            fill
-                            className="object-cover"
-                            priority
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                    </div>
+                {/* Animated Poster Section */}
+                <FadeIn direction="left" delay={0.2} className="w-full flex-1 flex justify-center md:justify-end">
+                    <HeroPoster />
                 </FadeIn>
             </div>
         </section>
