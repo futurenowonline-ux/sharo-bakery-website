@@ -31,7 +31,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                     />
                 ) : (
                     <div className="flex h-full w-full items-center justify-center bg-gray-300 transition-transform duration-200 ease-in-out group-hover:scale-105">
-                        <span className="text-gray-500">No Image</span>
+                        <span className="text-sharo-brown">No Image</span>
                     </div>
                 )}
             </div>
@@ -41,7 +41,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 <h3 className="mb-2 text-lg font-bold text-sharo-dark md:text-xl">
                     {name}
                 </h3>
-                <p className="mb-3 line-clamp-2 flex-grow text-sm text-gray-600 md:text-base">
+                <p className="mb-3 line-clamp-2 flex-grow text-sm text-gray-700 md:text-base">
                     {description}
                 </p>
                 <div className="mt-auto">

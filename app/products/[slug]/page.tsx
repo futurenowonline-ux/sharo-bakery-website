@@ -67,7 +67,7 @@ export default async function ProductPage({
 
                     {/* Right Column: Details */}
                     <div className="flex flex-col justify-center">
-                        <span className="mb-2 text-sm font-semibold uppercase tracking-wider text-gray-500">
+                        <span className="mb-2 text-sm font-semibold uppercase tracking-wider text-sharo-brown">
                             {product.category}
                         </span>
                         <h1 className="mb-4 text-4xl font-bold text-sharo-dark">

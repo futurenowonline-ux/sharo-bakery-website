@@ -33,7 +33,7 @@ export default function AboutPage() {
                     <h1 className="text-4xl font-bold text-sharo-brown md:text-5xl">
                         About Sharo Bakery
                     </h1>
-                    <p className="mt-4 text-lg text-gray-600 md:text-xl">
+                    <p className="mt-4 text-lg text-sharo-brown md:text-xl">
                         Premium artisan bakery bringing health and wellness to Ulundi
                     </p>
                 </div>
@@ -72,7 +72,7 @@ export default function AboutPage() {
                                 <h3 className="mb-3 text-xl font-bold text-sharo-brown">
                                     {item.title}
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-700">
                                     {item.description}
                                 </p>
                             </div>

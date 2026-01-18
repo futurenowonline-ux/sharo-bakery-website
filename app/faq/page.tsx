@@ -43,7 +43,7 @@ export default function FAQPage() {
                         <h1 className="text-4xl font-bold text-sharo-brown md:text-5xl">
                             Frequently Asked Questions
                         </h1>
-                        <p className="mt-4 text-lg text-gray-600">
+                        <p className="mt-4 text-lg text-sharo-brown">
                             Everything you need to know about Sharo Bakery
                         </p>
                     </div>

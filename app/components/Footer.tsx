@@ -18,7 +18,7 @@ export default function Footer() {
                 {/* Column 1: Brand */}
                 <div className="flex flex-col space-y-4">
                     <h2 className="text-2xl font-bold">Sharo Bakery</h2>
-                    <p className="text-sm opacity-90">Fresh bread baked daily.</p>
+                    <p className="text-sm text-sharo-light/90">Fresh bread baked daily.</p>
                 </div>
 
                 {/* Column 2: Quick Links */}
@@ -29,7 +29,7 @@ export default function Footer() {
                             <li key={link.name}>
                                 <Link
                                     href={link.href}
-                                    className="text-sm transition-colors hover:text-sharo-gold"
+                                    className="text-sm text-sharo-light transition-colors hover:text-sharo-gold"
                                 >
                                     {link.name}
                                 </Link>
@@ -41,7 +41,7 @@ export default function Footer() {
                 {/* Column 3: Contact Info */}
                 <div className="flex flex-col space-y-4">
                     <h3 className="text-lg font-semibold text-sharo-gold">Contact Us</h3>
-                    <div className="space-y-2 text-sm opacity-90">
+                    <div className="space-y-2 text-sm text-sharo-light/90">
                         <p>Phone: +27 35 870 0000</p>
                         <p>Email: info@sharobakery.co.za</p>
                         <p>Address: Ulundi, KwaZulu-Natal, South Africa</p>
@@ -85,7 +85,7 @@ export default function Footer() {
             {/* Bottom Bar */}
             <div className="border-t border-sharo-gold/30 bg-black/10">
                 <div className="mx-auto max-w-7xl px-4 py-6 text-center text-sm md:px-8">
-                    <p className="text-gray-300">
+                    <p className="text-sharo-light">
                         &copy; 2026 Sharo Bakery. All rights reserved.
                     </p>
                 </div>

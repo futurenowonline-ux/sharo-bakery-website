@@ -17,7 +17,7 @@ export default function Hero({
                     <h1 className="text-4xl font-bold text-sharo-brown md:text-5xl lg:text-6xl">
                         {headline}
                     </h1>
-                    <p className="mt-8 text-lg text-gray-600 md:text-xl">
+                    <p className="mt-8 text-lg text-sharo-brown md:text-xl">
                         {subheading}
                     </p>
 
