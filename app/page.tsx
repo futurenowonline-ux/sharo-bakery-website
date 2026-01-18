@@ -1,5 +1,5 @@
 
-import Navbar from '@/app/components/Navbar';
+
 import Hero from '@/app/components/Hero';
 import ProductCard from '@/app/components/ProductCard';
 import FadeIn from '@/app/components/FadeIn';
@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-sharo-light">
-      <Navbar />
+
       <Hero />
 
       <section className="py-12 md:py-16">
