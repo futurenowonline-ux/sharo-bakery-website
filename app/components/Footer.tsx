@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+
 
 export default function Footer() {
     const quickLinks = [

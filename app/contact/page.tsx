@@ -1,6 +1,11 @@
 
 import ContactForm from '@/app/components/ContactForm';
-import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Contact Us | Sharo Bakery',
+    description: 'Get in touch with Sharo Bakery in Ulundi. Call, email, or visit us for fresh health bread.',
+};
 
 export default function ContactPage() {
     return (

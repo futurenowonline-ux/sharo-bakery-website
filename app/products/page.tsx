@@ -1,5 +1,11 @@
 import ProductGallery from '@/app/components/ProductGallery';
 import { products } from '@/data/products';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Products | Sharo Bakery',
+    description: 'Explore our full range of artisan health breads, sandwiches, and fresh baked goods.',
+};
 
 export default function ProductsPage() {
     return (

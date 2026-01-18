@@ -11,6 +11,28 @@ export async function generateStaticParams() {
     }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+    const resolvedParams = await params;
+    const product = getProductBySlug(resolvedParams.slug);
+
+    if (!product) {
+        return {
+            title: 'Product Not Found | Sharo Bakery',
+            description: 'The requested product could not be found.',
+        };
+    }
+
+    return {
+        title: `${product.name} | Sharo Bakery`,
+        description: product.description,
+        openGraph: {
+            title: `${product.name} | Sharo Bakery`,
+            description: product.description,
+            images: product.image ? [product.image] : [],
+        },
+    };
+}
+
 export default async function ProductPage({
     params,
 }: {

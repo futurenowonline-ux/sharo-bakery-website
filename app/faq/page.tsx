@@ -1,5 +1,11 @@
 
 import FAQAccordion from '@/app/components/FAQAccordion';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'FAQ | Sharo Bakery',
+    description: 'Frequently asked questions about Sharo Bakery products, ingredients, and ordering.',
+};
 
 export default function FAQPage() {
     const faqs = [

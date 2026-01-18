@@ -1,3 +1,9 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'About Us | Sharo Bakery',
+    description: 'Our story: Premium artisan bakery in Ulundi bringing health and wellness to the community.',
+};
 
 export default function AboutPage() {
     const benefits = [
