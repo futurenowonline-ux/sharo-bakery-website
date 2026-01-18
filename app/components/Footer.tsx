@@ -92,7 +92,7 @@ export default function Footer() {
             <div className="border-t border-sharo-gold/30 bg-black/10">
                 <div className="mx-auto max-w-7xl px-4 py-6 text-center text-sm md:px-8">
                     <p className="text-sharo-light">
-                        &copy; 2026 Sharo Bakery. All rights reserved.
+                        &copy; 2026 Sharo Bakery. All rights reserved. | <a href="https://e-nani-digital-tools-site.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-sharo-gold transition-colors">Website by eNani Digital Tools</a>
                     </p>
                 </div>
             </div>
