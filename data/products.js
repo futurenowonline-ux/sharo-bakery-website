@@ -10,7 +10,7 @@ export const products = [
       "High in fibre",
       "Healthy seeds for protein and antioxidants"
     ],
-    image: "/images/products/health-bread.jpg",
+    image: "/images/health-bread-loaves.jpg",
     category: "bread",
     price: 45.00
   },
@@ -24,7 +24,7 @@ export const products = [
       "Fresh daily",
       "Variety of fillings"
     ],
-    image: "/images/products/sandwiches.jpg",
+    image: "/images/health-sandwich-1.jpg",
     category: "sandwiches",
     price: 35.00
   },
@@ -38,7 +38,7 @@ export const products = [
       "Fresh daily",
       "Quality ingredients"
     ],
-    image: "/images/products/cinnamon-buns.jpg",
+    image: "/images/cinnamon-buns-tray.jpg",
     category: "buns",
     price: 25.00
   }

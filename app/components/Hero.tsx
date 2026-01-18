@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import FadeIn from '@/app/components/FadeIn';
 
 interface HeroProps {
     headline?: string;
@@ -13,7 +15,7 @@ export default function Hero({
         <section className="bg-sharo-light py-12 md:py-20 lg:py-28">
             <div className="mx-auto flex max-w-7xl flex-col-reverse gap-12 px-4 md:flex-row md:items-center md:gap-12 md:px-8 lg:px-16">
                 {/* Text Content */}
-                <div className="flex flex-1 flex-col items-start text-left">
+                <FadeIn direction="right" className="flex flex-1 flex-col items-start text-left">
                     <h1 className="text-4xl font-bold text-sharo-brown md:text-5xl lg:text-6xl">
                         {headline}
                     </h1>
@@ -35,14 +37,21 @@ export default function Hero({
                             Visit Our Bakery
                         </Link>
                     </div>
-                </div>
+                </FadeIn>
 
                 {/* Image Section */}
-                <div className="w-full flex-1">
-                    <div className="h-96 w-full rounded-2xl bg-gray-300 shadow-lg md:aspect-[4/3] md:h-auto">
-                        {/* Placeholder for now */}
+                <FadeIn direction="left" delay={0.2} className="w-full flex-1">
+                    <div className="relative h-96 w-full overflow-hidden rounded-2xl shadow-lg md:aspect-[4/3] md:h-auto">
+                        <Image
+                            src="/images/health-bread-loaves.jpg"
+                            alt="Fresh Sharo Health Bread"
+                            fill
+                            className="object-cover"
+                            priority
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
                     </div>
-                </div>
+                </FadeIn>
             </div>
         </section>
     );

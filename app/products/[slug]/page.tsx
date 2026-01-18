@@ -101,9 +101,14 @@ export default async function ProductPage({
 
                         {/* CTA Buttons */}
                         <div className="flex gap-4">
-                            <button className="rounded-md bg-sharo-gold px-8 py-3 font-semibold text-sharo-brown transition-transform hover:scale-105 hover:opacity-90">
-                                Order Now
-                            </button>
+                            <a
+                                href={`https://wa.me/27358700000?text=${encodeURIComponent(`Hi, I would like to order ${product.name}`)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center rounded-md bg-sharo-gold px-8 py-3 font-semibold text-sharo-brown transition-transform hover:scale-105 hover:opacity-90"
+                            >
+                                Order on WhatsApp
+                            </a>
                             <Link
                                 href="/products"
                                 className="rounded-md border-2 border-sharo-brown px-6 py-3 font-semibold text-sharo-brown transition-colors hover:bg-sharo-brown hover:text-white"
