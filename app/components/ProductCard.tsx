@@ -48,12 +48,15 @@ export default function ProductCard({ product }: ProductCardProps) {
                     <p className="mb-4 text-lg font-bold text-sharo-brown md:text-xl">
                         R {price.toFixed(2)}
                     </p>
-                    <button
-                        className="w-full rounded-md bg-sharo-brown py-2 font-semibold text-white transition-colors hover:bg-opacity-90 hover:bg-[#4A3B2A] md:py-3"
-                        aria-label={`View details for ${name}`}
+                    <a
+                        href={`https://wa.me/27717438989?text=${encodeURIComponent(`Hi Sharo Bakery, I'm interested in ordering the *${name}* for R${price.toFixed(2)}.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full rounded-md bg-sharo-brown py-2 text-center font-semibold text-white transition-colors hover:bg-opacity-90 hover:bg-[#4A3B2A] md:py-3"
+                        aria-label={`Order ${name} on WhatsApp`}
                     >
-                        View Details
-                    </button>
+                        Order via WhatsApp
+                    </a>
                 </div>
             </div>
         </div>

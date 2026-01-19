@@ -24,52 +24,30 @@ export default function ContactForm() {
         }));
     };
 
-    const handleSubmit = async (e: FormEvent) => {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        try {
-            // Google Apps Script Web App URL
-            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby6F_BPeq9zPJutJ7eSWppOyJEKzH97eu0a6A3iSyX6Kab5jJ8Q_szd2lBOsYUzrvp_/exec";
+        // Construct the WhatsApp message
+        const phoneNumber = "27717438989"; // Sharo Bakery WhatsApp
+        const text = `*New Contact Form Inquiry*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone || "Not provided"}%0A*Subject:* ${formData.subject}%0A*Message:* ${formData.message}`;
 
-            // Apps Script requires strict CORS settings or Simple Request to work perfectly.
-            // Using 'no-cors' mode sends the request but returns an Opaque response.
-            // This prevents us from reading the status, but guarantees the request is sent without 
-            // the browser blocking it due to missing CORS headers on 302 redirects.
-            // This is the most reliable way for simple forms.
-            await fetch(SCRIPT_URL, {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "text/plain",
-                },
-                body: JSON.stringify(formData),
-            });
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${text}`;
 
-            // Since mode is no-cors, we assume success if no network error occurred.
-            setSuccess(true);
-            setFormData({
-                name: "",
-                email: "",
-                phone: "",
-                subject: "",
-                message: "",
-            });
-            setTimeout(() => setSuccess(false), 5000);
+        // Open WhatsApp in a new tab
+        window.open(whatsappUrl, '_blank');
 
-        } catch (error) {
-            console.error("Error submitting form", error);
-            // Even if CORS fails to return a readable response, the request often reached the server.
-            // But let's assume if it throws it failed.
-            // For now, let's treat "opaque" responses or successful fetches as success for the user UX 
-            // unless we strictly need to read the "success" JSON from the script.
-            // Given the 'text/plain' hack usually avoids CORS preflight, it should return 200 OK.
+        setSuccess(true);
+        setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+        });
 
-            // Fallback for user feedback
-            alert("Something went wrong. Please try again or contact us directly on WhatsApp.");
-        } finally {
-            setIsSubmitting(false);
-        }
+        setIsSubmitting(false);
+        setTimeout(() => setSuccess(false), 5000);
     };
 
     return (
