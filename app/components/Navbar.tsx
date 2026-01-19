@@ -44,8 +44,22 @@ export default function Navbar() {
                 </button>
 
                 {/* Center Logo */}
-                <div className="text-2xl font-bold">
-                    <Link href="/">Sharo Bakery</Link>
+                <div className="flex items-center gap-3">
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <div className="relative h-10 w-10 md:h-12 md:w-12 overflow-hidden rounded-full border-2 border-sharo-gold/20 transition-transform duration-300 group-hover:scale-105">
+                            {/* Using standard img tag for simplicity with static public assets if config is strict, but Next Image is better. 
+                                 Since it's in public/sharo-logo.jpg, width/height are needed. 
+                                 I'll use Next Image. */}
+                            <img
+                                src="/sharo-logo.jpg"
+                                alt="Sharo Bakery Logo"
+                                className="h-full w-full object-cover"
+                            />
+                        </div>
+                        <span className="text-xl md:text-2xl font-bold transition-colors group-hover:text-sharo-gold">
+                            Sharo Bakery
+                        </span>
+                    </Link>
                 </div>
 
                 {/* Desktop Navigation Links */}

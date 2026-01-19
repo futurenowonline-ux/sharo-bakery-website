@@ -17,28 +17,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Sharo Bakery | Premium Health Bread in Ulundi, KZN',
-  description: 'Fresh artisan health bread, cinnamon buns, and healthy sandwiches. Black woman-owned bakery in Ulundi, KwaZulu-Natal. Order now!',
-  keywords: ['bakery', 'health bread', 'Ulundi', 'KwaZulu-Natal', 'fresh bread', 'gluten-free'],
+  title: 'Sharo Bakery | Fresh Health Bread & Treats in Ulundi',
+  description: 'Order premium health bread, cinnamon buns, and sandwiches from Sharo Bakery. Freshly baked daily in Ulundi, KZN. Delivery available.',
+  keywords: ['bakery', 'health bread', 'Ulundi', 'KwaZulu-Natal', 'fresh bread', 'cinnamon buns', 'baking', 'order online'],
   authors: [{ name: 'Sharo Bakery' }],
+  icons: {
+    icon: '/sharo-logo.jpg',
+    shortcut: '/sharo-logo.jpg',
+    apple: '/sharo-logo.jpg',
+  },
   openGraph: {
-    title: 'Sharo Bakery | Premium Health Bread',
-    description: 'Fresh artisan health bread baked daily in Ulundi',
+    title: 'Sharo Bakery | Fresh Health Bread & Treats',
+    description: 'Premium artisan health bread and baked goods in Ulundi. Order via WhatsApp today!',
     url: 'https://sharobakery.co.za',
     siteName: 'Sharo Bakery',
+    locale: 'en_ZA',
     type: 'website',
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
+        url: '/sharo-logo.jpg', // Using logo as primary OG image for now
+        width: 800,
+        height: 800,
+        alt: 'Sharo Bakery Logo',
       }
     ]
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Sharo Bakery | Premium Health Bread',
-    description: 'Fresh artisan health bread baked daily in Ulundi'
+    card: 'summary',
+    title: 'Sharo Bakery | Fresh Health Bread',
+    description: 'Premium artisan health bread and baked goods in Ulundi.',
+    images: ['/sharo-logo.jpg'],
   }
 };
 
