@@ -11,8 +11,7 @@ export const products = [
       "Healthy seeds for protein and antioxidants"
     ],
     image: "/sharo-bread.jpg",
-    category: "bread",
-    price: 45.00
+    category: "bread"
   },
   {
     id: "2",
@@ -25,8 +24,7 @@ export const products = [
       "Variety of fillings"
     ],
     image: "/sharo-sandwich.jpg",
-    category: "sandwiches",
-    price: 35.00
+    category: "sandwiches"
   },
   {
     id: "3",
@@ -39,8 +37,7 @@ export const products = [
       "Quality ingredients"
     ],
     image: "/sharo-buns.jpg",
-    category: "buns",
-    price: 25.00
+    category: "buns"
   }
 ];
 

@@ -73,9 +73,6 @@ export default async function ProductPage({
                         <h1 className="mb-4 text-4xl font-bold text-sharo-dark">
                             {product.name}
                         </h1>
-                        <p className="mb-6 text-3xl font-bold text-sharo-brown">
-                            R {product.price.toFixed(2)}
-                        </p>
                         <p className="mb-8 text-lg leading-relaxed text-gray-700">
                             {product.description}
                         </p>
@@ -102,7 +99,7 @@ export default async function ProductPage({
                         {/* CTA Buttons */}
                         <div className="flex gap-4">
                             <a
-                                href={`https://wa.me/27358700000?text=${encodeURIComponent(`Hi, I would like to order ${product.name}`)}`}
+                                href={`https://wa.me/27717438989?text=${encodeURIComponent(`Hi Sharo Bakery, I would like to order ${product.name}`)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center rounded-md bg-sharo-gold px-8 py-3 font-semibold text-sharo-brown transition-transform hover:scale-105 hover:opacity-90"

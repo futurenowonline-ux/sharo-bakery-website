@@ -5,7 +5,6 @@ export interface Product {
     id: string;
     name: string;
     description: string;
-    price: number;
     image?: string;
     category?: string;
 }
@@ -15,7 +14,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-    const { name, description, price, image } = product;
+    const { name, description, image } = product;
 
     return (
         <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-200 hover:shadow-lg border border-gray-200">
@@ -45,11 +44,8 @@ export default function ProductCard({ product }: ProductCardProps) {
                     {description}
                 </p>
                 <div className="mt-auto">
-                    <p className="mb-4 text-lg font-bold text-sharo-brown md:text-xl">
-                        R {price.toFixed(2)}
-                    </p>
                     <a
-                        href={`https://wa.me/27717438989?text=${encodeURIComponent(`Hi Sharo Bakery, I'm interested in ordering the *${name}* for R${price.toFixed(2)}.`)}`}
+                        href={`https://wa.me/27717438989?text=${encodeURIComponent(`Hi Sharo Bakery, I'm interested in ordering the *${name}*.`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block w-full rounded-md bg-sharo-brown py-2 text-center font-semibold text-white transition-colors hover:bg-opacity-90 hover:bg-[#4A3B2A] md:py-3"
