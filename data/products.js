@@ -23,7 +23,7 @@ export const products = [
       "Fresh daily",
       "Variety of fillings"
     ],
-    image: "/sharo-sandwich.jpg",
+    image: "/sharo-sandwich-new.jpg",
     category: "sandwiches"
   },
   {
