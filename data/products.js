@@ -10,7 +10,7 @@ export const products = [
       "High in fibre",
       "Healthy seeds for protein and antioxidants"
     ],
-    image: "/images/products/health-bread-enhanced.jpg",
+    image: "/sharo-bread.jpg",
     category: "bread",
     price: 45.00
   },
