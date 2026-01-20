@@ -19,7 +19,7 @@ export default function FAQPage() {
         },
         {
             question: "Can I order in bulk?",
-            answer: "Absolutely! We supply to retail stores and businesses. Contact us at info@sharobakery.co.za for bulk pricing."
+            answer: "Absolutely! We supply to retail stores and businesses. Contact us at sharongazu@icloud.com for bulk pricing."
         },
         {
             question: "What is your delivery area?",

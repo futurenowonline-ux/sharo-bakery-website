@@ -34,8 +34,8 @@ export default function ContactPage() {
                             <div>
                                 <h3 className="font-semibold text-sharo-brown">Visit Us</h3>
                                 <p className="text-gray-700">
-                                    Ulundi, KwaZulu-Natal<br />
-                                    South Africa
+                                    B943 Indlavini Crescent<br />
+                                    Ulundi 3838
                                 </p>
                             </div>
 
@@ -50,7 +50,7 @@ export default function ContactPage() {
 
                             <div>
                                 <h3 className="font-semibold text-sharo-brown">Email Us</h3>
-                                <p className="text-gray-700">info@sharobakery.co.za</p>
+                                <p className="text-gray-700">sharongazu@icloud.com</p>
                             </div>
 
                             <div>
