@@ -28,7 +28,9 @@ export default function Hero({
                     <h1 className="mb-6 text-5xl font-extrabold leading-tight text-white drop-shadow-lg md:text-7xl">
                         {headline}
                     </h1>
-                    {/* Subheading removed as per request */}
+                    <p className="mb-10 text-xl font-medium text-gray-100 drop-shadow-md md:text-2xl">
+                        Handcrafted with love in Zululand
+                    </p>
                     <div className="flex gap-4">
                         <Link
                             href="/products"
