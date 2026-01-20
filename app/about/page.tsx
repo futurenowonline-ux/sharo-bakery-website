@@ -53,9 +53,9 @@ export default function AboutPage() {
                         <p>
                             At Sharo Bakery, we don't cut corners. Our commitment to quality is unwavering, and our dedication to our community is the heart of everything we do. We believe that good bread brings people together, and we are honored to be a part of your daily table.
                         </p>
-                        <div className="pt-4 border-t border-gray-200 mt-6">
+                        <div className="pt-4 border-t border-gray-200 mt-6 flex flex-col items-center text-center">
                             <h3 className="text-sm font-semibold text-sharo-brown mb-2">Company Details</h3>
-                            <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-600">
+                            <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-600 justify-center">
                                 <p><span className="font-medium text-sharo-dark">Registration No:</span> 2014/007114/07</p>
                                 <p><span className="font-medium text-sharo-dark">CSD No:</span> MMAAA1089857</p>
                             </div>
