@@ -57,6 +57,21 @@ export default function AboutPage() {
                 </div>
             </section>
 
+            {/* Video Section */}
+            <section className="bg-white pb-12 md:pb-20">
+                <div className="mx-auto max-w-5xl px-4 md:px-8">
+                    <div className="relative w-full overflow-hidden rounded-xl shadow-2xl pt-[56.25%]">
+                        <iframe
+                            className="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube.com/embed/fW8TODSKLqQ"
+                            title="Sharo Bakery Story"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+            </section>
+
             {/* Why Choose Us Section */}
             <section className="bg-gray-50 py-12 md:py-20">
                 <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16">
