@@ -19,6 +19,10 @@ export default function Footer() {
                 <div className="flex flex-col space-y-4">
                     <h2 className="text-2xl font-bold">Sharo Bakery</h2>
                     <p className="text-sm text-sharo-light/90">Fresh bread baked daily.</p>
+                    <div className="mt-2 text-xs text-sharo-light/70 space-y-1">
+                        <p>Reg No: 2014/007114/07</p>
+                        <p>CSD No: MMAAA1089857</p>
+                    </div>
                 </div>
 
                 {/* Column 2: Quick Links */}
