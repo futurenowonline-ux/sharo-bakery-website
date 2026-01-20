@@ -24,7 +24,7 @@ export const products = [
       "Fresh daily",
       "Variety of fillings"
     ],
-    image: "/images/products/sandwiches-enhanced.jpg",
+    image: "/sharo-sandwich.jpg",
     category: "sandwiches",
     price: 35.00
   },
