@@ -38,7 +38,7 @@ export const products = [
       "Fresh daily",
       "Quality ingredients"
     ],
-    image: "/images/products/cinnamon-buns-enhanced.jpg",
+    image: "/sharo-buns.jpg",
     category: "buns",
     price: 25.00
   }
