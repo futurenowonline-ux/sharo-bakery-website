@@ -22,25 +22,23 @@ export default function Hero({
             {/* Darker overlay for better contrast with real photo */}
             <div className="absolute inset-0 bg-black/60"></div>
 
-            {/* Text Content Overlay */}
-            <div className="relative z-10 flex items-center justify-center h-full px-4 text-center md:px-16 lg:px-24">
+            {/* Text Content Overlay - Left Aligned */}
+            <div className="relative z-10 flex h-full items-center justify-start px-4 text-left md:px-16 lg:px-24">
                 <div className="max-w-4xl">
-                    <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+                    <h1 className="mb-6 text-5xl font-extrabold leading-tight text-white drop-shadow-lg md:text-7xl">
                         {headline}
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-100 mb-10 font-medium drop-shadow-md">
-                        {subheading}
-                    </p>
+                    {/* Subheading removed as per request */}
                     <div className="flex gap-4">
                         <Link
                             href="/products"
-                            className="inline-block bg-sharo-gold text-sharo-brown px-8 py-3 font-bold rounded-lg hover:opacity-90 transition"
+                            className="inline-block rounded-lg bg-sharo-gold px-8 py-3 font-bold text-sharo-brown transition hover:opacity-90"
                         >
                             View Products
                         </Link>
                         <Link
                             href="/about"
-                            className="inline-block border-2 border-white text-white px-8 py-3 font-bold rounded-lg hover:bg-white hover:text-sharo-brown transition"
+                            className="inline-block rounded-lg border-2 border-white px-8 py-3 font-bold text-white transition hover:bg-white hover:text-sharo-brown"
                         >
                             Learn More
                         </Link>
