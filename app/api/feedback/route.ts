@@ -30,9 +30,10 @@ export async function POST(req: Request) {
         if (!process.env.GOOGLE_SHEET_ID) missingVars.push("GOOGLE_SHEET_ID");
 
         if (missingVars.length > 0) {
-            console.error("Missing Environment Variables:", missingVars.join(", "));
+            const errorMsg = `Missing variables: ${missingVars.join(", ")}`;
+            console.error(errorMsg);
             return NextResponse.json(
-                { message: "Backend configuration error.", error: `Missing: ${missingVars.join(", ")}` },
+                { message: `Backend configuration error: ${errorMsg}` },
                 { status: 500 }
             );
         }
