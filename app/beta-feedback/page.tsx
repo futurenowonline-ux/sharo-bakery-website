@@ -97,7 +97,8 @@ export default function BetaFeedbackPage() {
                 });
             } else {
                 const errorData = await response.json();
-                setStatus({ type: 'error', message: errorData.message || "Something went wrong. Please try again later." });
+                const specificError = errorData.error || errorData.message || "Submission failed";
+                setStatus({ type: 'error', message: `Error: ${specificError}` });
             }
         } catch (error) {
             setStatus({ type: 'error', message: "Failed to connect to the server. Please check your connection." });
@@ -124,8 +125,8 @@ export default function BetaFeedbackPage() {
                     type="button"
                     onClick={() => handleRatingClick(name, num.toString())}
                     className={`h-11 w-11 rounded-lg border-2 font-semibold transition-all ${currentValue === num.toString()
-                            ? "border-sharo-brown bg-sharo-brown text-white"
-                            : "border-gray-200 bg-white text-gray-500 hover:border-sharo-gold hover:bg-sharo-gold/10"
+                        ? "border-sharo-brown bg-sharo-brown text-white"
+                        : "border-gray-200 bg-white text-gray-500 hover:border-sharo-gold hover:bg-sharo-gold/10"
                         }`}
                 >
                     {num}

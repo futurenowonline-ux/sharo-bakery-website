@@ -22,6 +22,21 @@ export async function POST(req: Request) {
             );
         }
 
+        // Check for missing environment variables
+        const missingVars = [];
+        if (!process.env.GOOGLE_CLIENT_EMAIL) missingVars.push("GOOGLE_CLIENT_EMAIL");
+        if (!process.env.GOOGLE_PRIVATE_KEY) missingVars.push("GOOGLE_PRIVATE_KEY");
+        if (!process.env.GOOGLE_PROJECT_ID) missingVars.push("GOOGLE_PROJECT_ID");
+        if (!process.env.GOOGLE_SHEET_ID) missingVars.push("GOOGLE_SHEET_ID");
+
+        if (missingVars.length > 0) {
+            console.error("Missing Environment Variables:", missingVars.join(", "));
+            return NextResponse.json(
+                { message: "Backend configuration error.", error: `Missing: ${missingVars.join(", ")}` },
+                { status: 500 }
+            );
+        }
+
         // Prepare Google Auth
         const auth = new google.auth.GoogleAuth({
             credentials: {
