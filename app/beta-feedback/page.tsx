@@ -96,9 +96,7 @@ export default function BetaFeedbackPage() {
                     suggestions: "",
                 });
             } else {
-                const errorData = await response.json();
-                const specificError = errorData.error || errorData.message || "Submission failed";
-                setStatus({ type: 'error', message: `Error: ${specificError}` });
+                setStatus({ type: 'error', message: "Something went wrong. Please try again later." });
             }
         } catch (error) {
             setStatus({ type: 'error', message: "Failed to connect to the server. Please check your connection." });

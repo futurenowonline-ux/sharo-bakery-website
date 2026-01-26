@@ -107,8 +107,7 @@ export async function POST(req: Request) {
         return NextResponse.json(
             {
                 message: "Feedback submission failed.",
-                error: error.message,
-                detail: errorDetail
+                error: error.message
             },
             { status: 500 }
         );
