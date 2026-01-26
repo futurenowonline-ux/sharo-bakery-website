@@ -22,21 +22,23 @@ export async function POST(req: Request) {
             );
         }
 
-        // Check for missing environment variables
-        const envKeys = Object.keys(process.env);
-        const googleKeys = envKeys.filter(key => key.startsWith('GOOGLE_'));
+        // Format the private key correctly for Google Auth
+        let privateKey = process.env.GOOGLE_PRIVATE_KEY || "";
 
-        const missingVars = [];
-        if (!process.env.GOOGLE_CLIENT_EMAIL) missingVars.push("GOOGLE_CLIENT_EMAIL");
-        if (!process.env.GOOGLE_PRIVATE_KEY) missingVars.push("GOOGLE_PRIVATE_KEY");
-        if (!process.env.GOOGLE_PROJECT_ID) missingVars.push("GOOGLE_PROJECT_ID");
-        if (!process.env.GOOGLE_SHEET_ID) missingVars.push("GOOGLE_SHEET_ID");
+        // 1. Trim whitespace and newlines from ends
+        privateKey = privateKey.trim();
 
-        if (missingVars.length > 0) {
-            const errorMsg = `Missing: ${missingVars.join(", ")}. Total env vars: ${envKeys.length}. Google keys found: ${googleKeys.join(", ") || "None"}`;
-            console.error(errorMsg);
+        // 2. Remove surrounding double quotes if present (common Vercel issue)
+        if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
+            privateKey = privateKey.substring(1, privateKey.length - 1);
+        }
+
+        // 3. Convert literal "\n" strings to actual newline characters
+        privateKey = privateKey.replace(/\\n/g, "\n");
+
+        if (!privateKey.includes("BEGIN PRIVATE KEY")) {
             return NextResponse.json(
-                { message: `Backend configuration error: ${errorMsg}` },
+                { message: "Invalid Private Key format. It should start with '-----BEGIN PRIVATE KEY-----'." },
                 { status: 500 }
             );
         }
@@ -45,7 +47,7 @@ export async function POST(req: Request) {
         const auth = new google.auth.GoogleAuth({
             credentials: {
                 client_email: process.env.GOOGLE_CLIENT_EMAIL,
-                private_key: process.env.GOOGLE_PRIVATE_KEY?.trim().replace(/^"|"$/g, "").replace(/\\n/g, "\n"),
+                private_key: privateKey,
                 project_id: process.env.GOOGLE_PROJECT_ID,
             },
             scopes: ["https://www.googleapis.com/auth/spreadsheets"],
