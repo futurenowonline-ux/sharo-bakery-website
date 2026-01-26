@@ -1,0 +1,84 @@
+import { google } from "googleapis";
+import { NextResponse } from "next/server";
+
+export async function POST(req: Request) {
+    try {
+        const body = await req.json();
+        const {
+            name, email, phone,
+            designRating, feels, designComments,
+            products, productComments,
+            navRating, pages, navComments,
+            device, mobileRating, mobileComments,
+            contact, contactComments,
+            overall, priority, suggestions
+        } = body;
+
+        // Basic validation
+        if (!name || !email) {
+            return NextResponse.json(
+                { message: "Name and email are required." },
+                { status: 400 }
+            );
+        }
+
+        // Prepare Google Auth
+        const auth = new google.auth.GoogleAuth({
+            credentials: {
+                client_email: process.env.GOOGLE_CLIENT_EMAIL,
+                private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+                project_id: process.env.GOOGLE_PROJECT_ID,
+            },
+            scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+        });
+
+        const sheets = google.sheets({ version: "v4", auth });
+
+        // Append to Google Sheet
+        const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+        const range = "Sheet1!A:T"; // Updated column range (A to T)
+
+        const response = await sheets.spreadsheets.values.append({
+            spreadsheetId,
+            range,
+            valueInputOption: "USER_ENTERED",
+            requestBody: {
+                values: [
+                    [
+                        new Date().toLocaleString('en-ZA', { timeZone: 'Africa/Johannesburg' }), // Timestamp
+                        name,
+                        email,
+                        phone || "N/A",
+                        designRating || "N/A",
+                        feels || "N/A",
+                        designComments || "N/A",
+                        Array.isArray(products) ? products.join(", ") : "None",
+                        productComments || "N/A",
+                        navRating || "N/A",
+                        pages || "N/A",
+                        navComments || "N/A",
+                        device || "N/A",
+                        mobileRating || "N/A",
+                        mobileComments || "N/A",
+                        contact || "N/A",
+                        contactComments || "N/A",
+                        overall || "N/A",
+                        priority || "N/A",
+                        suggestions || "N/A"
+                    ],
+                ],
+            },
+        });
+
+        return NextResponse.json(
+            { message: "Feedback submitted successfully!", data: response.data },
+            { status: 200 }
+        );
+    } catch (error: any) {
+        console.error("Google Sheets API Error:", error);
+        return NextResponse.json(
+            { message: "Feedback submission failed.", error: error.message },
+            { status: 500 }
+        );
+    }
+}

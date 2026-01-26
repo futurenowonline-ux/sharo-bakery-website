@@ -100,6 +100,22 @@ export default function ContactPage() {
                 {/* Right Column: Contact Form */}
                 <div className="md:col-span-2">
                     <ContactForm />
+
+                    {/* Website Beta Feedback CTA */}
+                    <div className="mt-8 rounded-lg border-2 border-dashed border-sharo-gold/50 bg-sharo-gold/5 p-6 text-center">
+                        <h3 className="text-xl font-bold text-sharo-brown">
+                            Website Beta Testing 🚀
+                        </h3>
+                        <p className="mt-2 text-gray-700">
+                            We're currently testing our new digital home. Help us make it perfect by sharing your experience!
+                        </p>
+                        <a
+                            href="/beta-feedback"
+                            className="mt-6 inline-block rounded-md bg-sharo-gold px-8 py-3 font-bold text-white shadow-md transition-all hover:bg-sharo-gold/90 hover:shadow-lg active:scale-95"
+                        >
+                            Give Website Feedback
+                        </a>
+                    </div>
                 </div>
 
             </div>
