@@ -23,6 +23,9 @@ export async function POST(req: Request) {
         }
 
         // Check for missing environment variables
+        const envKeys = Object.keys(process.env);
+        const googleKeys = envKeys.filter(key => key.startsWith('GOOGLE_'));
+
         const missingVars = [];
         if (!process.env.GOOGLE_CLIENT_EMAIL) missingVars.push("GOOGLE_CLIENT_EMAIL");
         if (!process.env.GOOGLE_PRIVATE_KEY) missingVars.push("GOOGLE_PRIVATE_KEY");
@@ -30,7 +33,7 @@ export async function POST(req: Request) {
         if (!process.env.GOOGLE_SHEET_ID) missingVars.push("GOOGLE_SHEET_ID");
 
         if (missingVars.length > 0) {
-            const errorMsg = `Missing variables: ${missingVars.join(", ")}`;
+            const errorMsg = `Missing: ${missingVars.join(", ")}. Total env vars: ${envKeys.length}. Google keys found: ${googleKeys.join(", ") || "None"}`;
             console.error(errorMsg);
             return NextResponse.json(
                 { message: `Backend configuration error: ${errorMsg}` },
