@@ -90,10 +90,20 @@ export async function POST(req: Request) {
             { status: 200 }
         );
     } catch (error: any) {
-        console.error("Google Sheets API Detailed Error:", JSON.stringify(error, null, 2));
-        console.error("Stack Trace:", error.stack);
+        // Safer logging to avoid circular reference crashes in JSON.stringify
+        const errorDetail = error.response?.data || error.errors || error.message;
+        console.error("Google Sheets API Error Details:", errorDetail);
+
+        if (error.stack) {
+            console.error("Stack Trace:", error.stack);
+        }
+
         return NextResponse.json(
-            { message: "Feedback submission failed.", error: error.message, detail: error.response?.data || error.errors },
+            {
+                message: "Feedback submission failed.",
+                error: error.message,
+                detail: errorDetail
+            },
             { status: 500 }
         );
     }
