@@ -26,7 +26,7 @@ export async function POST(req: Request) {
         const auth = new google.auth.GoogleAuth({
             credentials: {
                 client_email: process.env.GOOGLE_CLIENT_EMAIL,
-                private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+                private_key: process.env.GOOGLE_PRIVATE_KEY?.trim().replace(/^"|"$/g, "").replace(/\\n/g, "\n"),
                 project_id: process.env.GOOGLE_PROJECT_ID,
             },
             scopes: ["https://www.googleapis.com/auth/spreadsheets"],
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
 
         // Append to Google Sheet
         const spreadsheetId = process.env.GOOGLE_SHEET_ID;
-        const range = "Sheet1!A:T"; // Updated column range (A to T)
+        const range = "A:T"; // Targets the first sheet (A to T)
 
         const response = await sheets.spreadsheets.values.append({
             spreadsheetId,
@@ -75,9 +75,10 @@ export async function POST(req: Request) {
             { status: 200 }
         );
     } catch (error: any) {
-        console.error("Google Sheets API Error:", error);
+        console.error("Google Sheets API Detailed Error:", JSON.stringify(error, null, 2));
+        console.error("Stack Trace:", error.stack);
         return NextResponse.json(
-            { message: "Feedback submission failed.", error: error.message },
+            { message: "Feedback submission failed.", error: error.message, detail: error.response?.data || error.errors },
             { status: 500 }
         );
     }
